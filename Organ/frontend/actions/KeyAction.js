@@ -15,7 +15,7 @@ var KeyActions = {
   keyPressed: function (key) {
     var payload = {
       actionType: 'keydown',
-      noteName: Mapping.key
+      noteName: Mapping[key]
     };
 
     Dispatcher.dispatch(payload);
@@ -24,7 +24,7 @@ var KeyActions = {
   keyReleased: function (key) {
     var payload = {
       actionType: 'keyup',
-      noteName: Mapping.key
+      noteName: Mapping[key]
     };
 
     Dispatcher.dispatch(payload);
