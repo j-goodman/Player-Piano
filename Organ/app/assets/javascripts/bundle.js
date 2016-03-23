@@ -44,7 +44,9 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	Dispatcher = __webpack_require__(1);
+	$(function () {
+	  __webpack_require__(7);
+	});
 
 /***/ },
 /* 1 */
@@ -457,6 +459,78 @@
 	
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 6 */,
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var KeyAction = __webpack_require__(8);
+	
+	$(document).on('keydown', function (e) {
+	  var code = e.keyCode || e.which;
+	  KeyAction.keyPressed(code);
+	});
+	
+	$(document).on('keyup', function (e) {
+	  var code = e.keyCode || e.which;
+	  KeyAction.keyReleased(code);
+	});
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var TONES = __webpack_require__(9);
+	var Dispatcher = __webpack_require__(1);
+	
+	var Mapping = {
+	  49: TONES.C6,
+	  50: TONES.D6,
+	  51: TONES.E6,
+	  52: TONES.F6,
+	  53: TONES.G6,
+	  54: TONES.A6,
+	  55: TONES.B6
+	};
+	
+	var KeyActions = {
+	  keyPressed: function (key) {
+	    var payload = {
+	      actionType: 'keydown',
+	      noteName: Mapping.key
+	    };
+	
+	    Dispatcher.dispatch(payload);
+	  },
+	
+	  keyReleased: function (key) {
+	    var payload = {
+	      actionType: 'keyup',
+	      noteName: Mapping.key
+	    };
+	
+	    Dispatcher.dispatch(payload);
+	  }
+	};
+	
+	module.exports = KeyActions;
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	var TONES = {
+	  A6: 1760.00,
+	  B6: 1975.53,
+	  C6: 1046.50,
+	  D6: 1174.66,
+	  E6: 1318.51,
+	  F6: 1396.91,
+	  G6: 1567.98
+	};
+	
+	module.exports = TONES;
 
 /***/ }
 /******/ ]);

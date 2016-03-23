@@ -1,1 +1,3 @@
-Dispatcher = require('./dispatcher/Dispatcher.js');
+$(function() {
+  require('./util/KeyListener.js');
+});
