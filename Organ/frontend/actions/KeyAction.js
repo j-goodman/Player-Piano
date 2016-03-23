@@ -11,7 +11,7 @@ var Mapping = {
   55: TONES.B6
 };
 
-var KeyActions = {
+var KeyAction = {
   keyPressed: function (key) {
     var payload = {
       actionType: 'keydown',
@@ -26,9 +26,9 @@ var KeyActions = {
       actionType: 'keyup',
       noteName: Mapping[key]
     };
-
+		
     Dispatcher.dispatch(payload);
   }
 };
 
-module.exports = KeyActions;
+module.exports = KeyAction;

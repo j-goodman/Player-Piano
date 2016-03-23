@@ -13,6 +13,10 @@ var Key = React.createClass({
     this.storeToken = KeyStore.addListener(this.changeState);
   },
 
+	componentWillUnmount: function () {
+		KeyStore.remove(this.storeToken);
+	},
+
   changeState: function () {
     if (KeyStore.include(this.props.noteName)) {
       this.note.start();

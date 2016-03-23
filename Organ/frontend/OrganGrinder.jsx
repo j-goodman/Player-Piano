@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Key = require('./components/Key.jsx');
 var TONES = require('./constants/Tones.js');
+var Recorder = require('./components/Recorder.jsx');
 
 $(function() {
   require('./util/KeyListener.js');
@@ -17,6 +18,7 @@ $(function() {
           <Key noteName={TONES.G6} />
           <Key noteName={TONES.A6} />
           <Key noteName={TONES.B6} />
+					<Recorder />
         </div>
       );
     }

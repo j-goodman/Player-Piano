@@ -36,4 +36,8 @@ KeyStore.include = function(noteName) {
   }
 };
 
+KeyStore.all = function () {
+	return _notes.slice();
+};
+
 module.exports = KeyStore;
